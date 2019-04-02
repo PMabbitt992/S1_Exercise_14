@@ -140,7 +140,7 @@ function createList(source, outlineList) {
                   //create hypertext links to the document headings
                   var linkElem = document.createElement("a");
                   linkElem.innerHTML = n.innerHTML;
-                  linkElem.setAttribute("herf", "#" + n.id);
+                  linkElem.setAttribute("href", "#" + n.id);
                   //append hypertext to list item
                   listElem.appendChild(linkElem);
 
@@ -160,8 +160,8 @@ function createList(source, outlineList) {
                         //append list item to a higher list
                         var levelUp = prevLevel - headLevel;
 
-                        for (var i = 0; i <= levelUp; i++) {
-                              outlineList.appendChild(listElem);
+                        for (var i = 1; i <= levelUp; i++) {
+                              outlineList = outlineList.parentNode.parentNode;
                         }
                         outlineList.appendChild(listElem);
                   }
